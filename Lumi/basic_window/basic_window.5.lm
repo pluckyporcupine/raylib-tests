@@ -27,7 +27,7 @@ const Int SCREENHEIGHT 450
 
 native code "
 Color convertToNativeColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a) {
-	return (Color){ r, g, b, a };
+    return (Color){ r, g, b, a };
 }"
 
 native func convert-to-native-color(copy cdef.Uchar r, copy cdef.Uchar g, copy cdef.Uchar b, copy cdef.Uchar a)->(copy Color col) "convertToNativeColor"
@@ -52,7 +52,9 @@ main
         while not window-should-close()
         begin-drawing()
         clear-background(copy convert-to-native-color(copy raywhite.r, copy raywhite.g, copy raywhite.b, copy raywhite.a))
-        draw-text(copy os.string-to-chars(user "Congrats! You created your first window!"), copy 190, copy 200, copy 20, copy convert-to-native-color(copy lightgray.r, copy lightgray.g, copy lightgray.b, copy lightgray.a))
+        draw-text(copy os.string-to-chars(user "Congrats! You created your first window!"),
+                copy 190, copy 200, copy 20,
+                copy convert-to-native-color(copy lightgray.r, copy lightgray.g, copy lightgray.b, copy lightgray.a))
         end-drawing()
     close-window()
     return
