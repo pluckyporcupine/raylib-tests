@@ -8,7 +8,7 @@ struct LumiColor
     var cdef.Uchar b
     var cdef.Uchar a
 
-native type Color "struct Color"
+native type Color "Color"
 
 native func init-window(copy Int w, copy Int h, copy cdef.Pointer{cdef.Char} text)->() "InitWindow"
 native func close-window()->() "CloseWindow"
