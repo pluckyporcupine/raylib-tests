@@ -5,6 +5,7 @@ How to build:
 * Grab [the latest mingw release](https://github.com/raysan5/raylib/releases) of raylib
 * Copy raylib to the bin/include/lib folders in your `mingw64` folder
 * Clone the [Lumi](https://github.com/meircif/lumi-lang) repo and run `make` in the repo folder
+  * Remove all instances of `sudo` in the makefile before running `make`
 * Make a folder for Lumi development, eg. `D:\Code\Lumi`
 * Copy the `stdlib` folder from the Lumi repo to your Lumi development folder
 * Make another folder inside your Lumi development folder for this program
