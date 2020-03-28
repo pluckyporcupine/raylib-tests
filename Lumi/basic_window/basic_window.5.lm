@@ -1,4 +1,4 @@
-module raylib-test
+module basic-window
 
 native include "raylib.h"
 
