@@ -1,0 +1,4 @@
+stdlib/
+
+*.exe
+*.c

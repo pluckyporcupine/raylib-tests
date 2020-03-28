@@ -1,0 +1,1 @@
+lumi basic_window.5.lm ../stdlib/os.5.lm ../stdlib/dict.5.lm ../stdlib/list.5.lm -e -lraylib
