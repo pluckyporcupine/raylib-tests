@@ -2,35 +2,39 @@ module basic-window
 
 native include "raylib.h"
 
-native type Color "Color"
+native struct Color
+    var cdef.Uchar r
+    var cdef.Uchar g
+    var cdef.Uchar b
+    var cdef.Uchar a
 
 native var Color raywhite "RAYWHITE"
 native var Color lightgray "LIGHTGRAY"
 
-native func init-window(copy Int w, copy Int h, copy cdef.Pointer{cdef.Char} text)->() "InitWindow"
-native func close-window()->() "CloseWindow"
-native func window-should-close()->(copy Bool ret) "WindowShouldClose"
+native func init-window(copy Int w, copy Int h, copy cdef.Pointer{cdef.Char} text) "InitWindow"
+native func close-window() "CloseWindow"
+native func Bool window-should-close() "WindowShouldClose"
 
-native func set-target-fps(copy Int fps)->() "SetTargetFPS"
+native func set-target-fps(copy Int fps) "SetTargetFPS"
 
-native func begin-drawing()->() "BeginDrawing"
-native func end-drawing()->() "EndDrawing"
+native func begin-drawing() "BeginDrawing"
+native func end-drawing() "EndDrawing"
 
-native func clear-background(copy Color col)->() "ClearBackground"
-native func draw-text(copy cdef.Pointer{cdef.Char} text, copy Int x, copy Int y, copy Int size, copy Color col)->() "DrawText"
+native func clear-background(copy Color col) "ClearBackground"
+native func draw-text(copy cdef.Pointer{cdef.Char} text, copy Int x, copy Int y, copy Int size, copy Color col) "DrawText"
 
 const Int SCREENWIDTH 800
 const Int SCREENHEIGHT 450
 
 main
-    init-window(copy SCREENWIDTH, copy SCREENHEIGHT, copy os.string-to-chars(user "raylib [core] example - basic window"))
+    init-window(copy SCREENWIDTH, copy SCREENHEIGHT, copy "raylib [core] example - basic window")
     set-target-fps(copy 60)
 
     loop
         while not window-should-close()
         begin-drawing()
         clear-background(copy raywhite)
-        draw-text(copy os.string-to-chars(user "Congrats! You created your first window!"),
+        draw-text(copy "Congrats! You created your first window!",
                 copy 190, copy 200, copy 20,
                 copy lightgray)
         end-drawing()
